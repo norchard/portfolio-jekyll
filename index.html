@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<div class="row">
+  <div class="col-lg-12 dog">
+    <h1 class="intro">Equal parts</h1>
+  </div>
+  <!-- <div class="col-md-4">
+  </div> -->
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-lg-4">
+    <h2>Recent Projects</h2>
+  </div>
+    <div class="col-lg-4 col-md-6 col-sm-6">
+      <h3><a href="/projects/twitter_feels/index.html">Twitter Feels <span class="glyphicon glyphicon-share-alt"></span></a></h3>
+      <p>Data visualization project written in Javascript and Ruby using Twitter's API, Google's Natural Language Processing API, and Dimple, a D3-powered charting API.</p>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6">
+      <h3><a href="https://rsvp-here.herokuapp.com/">RSVP App <span class="glyphicon glyphicon-share-alt"></span></a></h3>
+      <p>A simple CRUD application for creating events, built in Ruby using Sinatra, ActiveRecord, and Amazon S3.</p>
+    </div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col-lg-4">
+    <h2>Design Work</h2>
+  </div>
+  <div class="col-lg-8">
+  {% for post in site.posts %}
+      <a href="{{ post.url }}">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="thumbnail">
+            <img src="{{ post.image }}">
+            <div class="caption">
+              <h3>{{ post.title }}</h3>
+              <p>{{post.description}}</p>
+            </div>
+            <div class="view">
+              View Project
+            </div>
+          </div>
+        </div>
+      </a>
+  {% endfor %}
+  </div>
+</div>

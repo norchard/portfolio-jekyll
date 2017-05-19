@@ -37,3 +37,7 @@ exclude:
 # Compress sass files
 sass:
   style: compressed
+
+gems:
+- jekyll-bootstrap-sass
+- font-awesome-sass

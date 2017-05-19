@@ -185,8 +185,5 @@ a .fa:hover{
   }
 }
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import "bootstrap/_bootstrap";
-@import "font-awesome/font-awesome";
-
-// @import "bootstrap";
+@import "bootstrap";
+@import "font-awesome";

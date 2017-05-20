@@ -23,7 +23,8 @@ description: Portfolio website
 # github_username:  jekyll
 
 collections:
-- works
+  works:
+    output: true
 
 # Build settings
 permalink: none

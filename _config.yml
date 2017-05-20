@@ -22,6 +22,9 @@ description: Portfolio website
 # twitter_username: jekyllrb
 # github_username:  jekyll
 
+collections:
+- works
+
 # Build settings
 permalink: none
 markdown: kramdown

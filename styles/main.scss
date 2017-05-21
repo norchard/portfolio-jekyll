@@ -6,12 +6,13 @@ $icon-font-path:      "../fonts/bootstrap/";
 $fa-font-path:        "../fonts/font-awesome/";
 
 $font-family-sans-serif:  "mr-eaves-xl-modern", Helvetica, Arial, sans-serif !default;
-$headings-font-weight:    500 !default;
-$font-size-base:          16px !default;
+$headings-font-weight:    700 !default;
+$heading-color:           #333333 !default;
+$font-size-base:          17.5px !default;
 $font-size-h1:            floor(($font-size-base * 3.2)) !default; // ~36px
 $link-hover-decoration:   none !default;
-$brand-primary:           darken(#4ae5b8, 6.5%) !default; // #337ab7
-$text-color:              #555 !default;
+$brand-primary:           darken(#FFCD00, 6.5%) !default; // #337ab7
+// $text-color:              #000 !default;
 
 //** Global textual link color.
 $link-color:            inherit !default;
@@ -21,7 +22,11 @@ $link-hover-color:      inherit !default;
 $link-hover-decoration: underline !default;
 
 ::selection{
-  background-color: lighten(#4ae5b8, 10%);
+  background-color: lighten(#FFE889, 10%);
+}
+
+body{
+  vertical-align: bottom;
 }
 
 div.col-lg-8{
@@ -37,12 +42,13 @@ img.intro_img{
 
 .caption{
   padding-top: 0px;
+  display: inline;
 }
 
 .footer{
   margin-top: 50px;
   margin-bottom: 80px;
-  text-align: center;
+  text-align: left;
 }
 
 .fa{
@@ -84,13 +90,13 @@ img{
 h3,
 a,
 a .fa:hover{
-  transition: color 0.3s ease-in-out 0s;
+  transition: color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
 }
 
 h3,
 a:hover,
 a .fa:hover{
-  transition: color 0.3s ease-in-out 0s;
+  transition: color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
 }
 
 .thumbnail{
@@ -107,14 +113,15 @@ a .fa:hover{
   display: inline-block;
 }
 
-div > h2 {
+div > h4 {
   color: #dddddd;
-  font-family: "mr-eaves-xl-sans";
+  // font-family: "mr-eaves-xl-sans";
   font-weight: bold;
+  // font-style: italic;
 }
 
 a:hover .thumbnail{
-  border-color: #4ae5b8;
+  border-color: #FFB400;
 }
 
 .work{
@@ -122,6 +129,7 @@ a:hover .thumbnail{
 }
 
 .view{
+  font-family: "mr-eaves-xl-sans";
   position: absolute;
   right: 10px;
   bottom: 0px;
@@ -133,7 +141,7 @@ a:hover .thumbnail{
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s ease-in-out 0s;
-  color: darken(#4ae5b8, 10%);
+  color: darken(#FFB400, 10%);
 }
 
 a:hover .view{
@@ -143,18 +151,23 @@ a:hover .view{
   transition: all 0.3s ease-in-out 0s;
 }
 
-.thumbnail h3 {
+// .thumbnail h3, .thumbnail p {
+//   margin: 0px;
+//   padding: 0px 10px;
+// }
+
+.row h3 {
   margin-top: 10px;
 }
 
 h3 a .glyphicon{
-  color: #4ae5b8;
+  color: #FFB400;
   font-size: 17px;
 }
 
 h3 a:hover,
 a .fa:hover{
-  color: darken(#4ae5b8, 10%);
+  color: darken(#FFB400, 10%);
 }
 
 .logo {
@@ -165,9 +178,33 @@ a .fa:hover{
 }
 
 .post {
-  width: 650px;
+  width: 680px;
   margin: 0 auto;
+  line-height: 1.8;
 }
+
+.post a {
+  font-weight: 700;
+  border-bottom: 1px solid #FFDB46;
+  margin: 0;
+  font-family: "mr-eaves-xl-modern", sans-serif;
+  font-size: 20px;
+}
+
+.post p, li{
+  font-family: "leitura-news", serif;
+  color: #444;
+}
+
+.post a:hover {
+  background-color: #FFDB46;
+  // color: #FFCD00;
+}
+
+.blog-post p {
+  display: inline;
+}
+
 
 // Media queries
 @media(min-width:992px) and (max-width:1199px){

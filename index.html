@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="row">
   <div class="col-lg-12 dog">
-    <h1 class="intro">Designer turned software engineer.</h1>
+    <h1 class="intro">Designer turned<br> software engineer.</h1>
   </div>
   <!-- <div class="col-md-4">
   </div> -->
@@ -12,7 +12,7 @@ layout: default
 <hr>
 <div class="row">
   <div class="col-lg-4">
-    <h2>Blog</h2>
+    <h4>Blog</h4>
   </div>
   <!-- <ul>
     {% for post in site.posts %}
@@ -24,8 +24,8 @@ layout: default
   <div class="col-lg-8">
   {% for post in site.posts %}
       <a href="{{ post.url }}">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="thumbnail">
+        <div class="col-lg-12 col-md-6 col-sm-6">
+          <div>
             <!-- <img src="{{ blog-post.image }}"> -->
             <div class="caption">
               <h3>{{ post.title }}</h3>
@@ -45,7 +45,7 @@ layout: default
 <hr>
 <div class="row">
   <div class="col-lg-4">
-    <h2>Recent Projects</h2>
+    <h4>Recent Projects</h4>
   </div>
     <div class="col-lg-4 col-md-6 col-sm-6">
       <h3><a href="/projects/twitter_feels/index.html">Twitter Feels <span class="glyphicon glyphicon-share-alt"></span></a></h3>
@@ -58,9 +58,9 @@ layout: default
 </div>
 
 <hr>
-<div class="row">
+<div class="row home">
   <div class="col-lg-4">
-    <h2>Design Work</h2>
+    <h4>Design Work</h4>
   </div>
   <div class="col-lg-8">
   {% for work in site.works %}

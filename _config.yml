@@ -25,9 +25,10 @@ description: Portfolio website
 collections:
   works:
     output: true
+    permalink: /design/:title
 
 # Build settings
-permalink: none
+permalink: /blog/:title
 markdown: kramdown
 # theme: minima
 # gems:

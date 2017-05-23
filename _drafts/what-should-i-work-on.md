@@ -8,9 +8,9 @@ Last year I was a web designer with a time-consuming programming pastime. In Jul
 
 ### Bootcamps might not be for you
 Bootcamps are great for people with financial resources who want to dive into web development without previous technical experience. I know accomplished software engineers who did bootcamps. I opted out of doing a bootcamp for three reasons:
-1. They are expensive.
-2. I already knew HTML, CSS, and some Javascript. Part of any bootcamp’s curriculum would have been redundant for me.
-3. Bootcamps focus on web-dev-specific tools. They don’t teach computer science fundamentals.
+-  They are expensive.
+-  I already knew HTML, CSS, and some Javascript. Part of any bootcamp’s curriculum would have been redundant for me.
+-  Bootcamps focus on web-dev-specific tools. They don’t teach computer science fundamentals.
 
 ### Self-study is free, but hard
 Self-discipline can be an obstacle to self-study, but it’s a straightforward one. You have a list of things you want to accomplish. Maybe you reward yourself for checking items off your list: Do your to-dos; Eat some ice cream.

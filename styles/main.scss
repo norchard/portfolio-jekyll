@@ -37,10 +37,6 @@ img.intro_img{
   width: 100%;
 }
 
-.caption{
-  margin: 0px 0px 10px 0px;
-}
-
 .caption h3, .caption p {
   padding: 0px 2px;
 }
@@ -55,7 +51,7 @@ img.intro_img{
 }
 
 .fa{
-  padding: 5px;
+  padding: 0px 5px;
 }
 
 .container{
@@ -226,6 +222,11 @@ a:hover .post-item h3{
   margin-bottom: 0px;
 }
 
+.rc-scout {
+  float: left;
+  padding: 5px 0px;
+}
+
 .dark {
   background-color: #1b2026;
 }
@@ -317,6 +318,11 @@ a:hover .post-item h3{
 
 .dark h3 a:hover {
   color: #5d7a9b;
+}
+
+.dark code {
+  background-color: #0c0f11;
+  color: #9cb5d1;
 }
 
 //

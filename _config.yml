@@ -17,8 +17,10 @@
 title: Nicole Orchard
 email: norchard24@gmail.com
 description: Nicole Orchard
+url: https://nicoleorchard.com
+
 # baseurl: "" # the subpath of your site, e.g. /blog
-# url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
 # twitter_username: jekyllrb
 # github_username:  jekyll
 
@@ -46,3 +48,4 @@ sass:
 gems:
 - jekyll-bootstrap-sass
 - font-awesome-sass
+# - jekyll-feed

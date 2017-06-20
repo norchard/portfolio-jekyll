@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why So Serious?
+title: All of the Easter Eggs
 description: A collection of silly computer stories
 ---
 

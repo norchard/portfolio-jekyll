@@ -1,14 +1,15 @@
 ---
 layout: post
-title: A Mini Intro to Compilers
-description:
+title: An Intro to Compilers
+description: How to Speak to Computers, Pre-Siri
 ---
+**tl;dr:** [Learning new meanings for front-end and back-end](https://twitter.com/norchard/status/864246049266958336).
 
-A compiler is just a program that translates other programs. Some compilers translate source code into another programming language. These compilers are called source-to-source translators or transpilers. Traditional compilers translate source code into executable machine code that your computer understands. [LLVM](http://llvm.org/) is a widely used compiler infrastructure project, consisting of many modular compiler tools.
+A compiler is just a program that translates other programs. Traditional compilers translate source code into executable machine code that your computer understands. (Some compilers translate source code into another programming language. These compilers are called source-to-source translators or transpilers.) [LLVM](http://llvm.org/) is a widely used compiler project, consisting of many modular compiler tools.
 
-A traditional compiler comprises three parts:
-<img src="/img/compiler1.jpg"/>
-- **The Frontend** translates source code into an intermediate representation (IR)\*. [`clang`](http://clang.llvm.org/) is LLVM's frontend for the C-family of languages.
+Traditional compiler design comprises three parts:
+<img src="/img/blog/compilers/compiler1.jpg"/>
+- **The Frontend** translates source code into an intermediate representation (IR)\*. [`clang`](http://clang.llvm.org/) is LLVM's frontend for the C family of languages.
 - **The Optimizer** analyzes the IR and translates it into a more efficient form. [`opt`](http://llvm.org/docs/CommandGuide/opt.html) is the LLVM optimizer tool.
 - **The Backend** generates machine code by mapping the IR to the target hardware instruction set. [`llc`](http://llvm.org/docs/CommandGuide/llc.html) is the LLVM backend tool.
 
@@ -31,8 +32,8 @@ int main() {
 {% endhighlight %}
 
 ### The Frontend
-As I mentioned above, `clang` is LLVM's frontend for the C-family of languages. Clang consists of a C preprocessor, lexer, parser, semantic analyzer, and IR generator.
-- **The C Preprocessor** modifies the source code before beginning the translation to IR. The preprocessor handles including external files, like `#include <stdio.h>` above. It will replace that line with the entire contents of the `stdio.h` C standard library file, which will include the definition of the `printf` function.
+As I mentioned above, `clang` is LLVM's frontend for the C family of languages. Clang consists of a C preprocessor, lexer, parser, semantic analyzer, and IR generator.
+- **The C Preprocessor** modifies the source code before beginning the translation to IR. The preprocessor handles including external files, like `#include <stdio.h>` above. It will replace that line with the entire contents of the `stdio.h` C standard library file, which will include the declaration of the `printf` function.
 
   *See the output of the preprocessor step by running:*
 ```
@@ -41,29 +42,13 @@ clang -E compile_me.c -o preprocessed.i
 - **The Lexer** (or scanner or tokenizer) converts a string of characters to a string of words. Each word, or token, is assigned to one of five syntactic categories: punctuation, keyword, identifier, literal, or comment.
 
   *Tolkenization of compile_me.c*
-  ```
-  PUNCTUATION(#) IDENTIFIER(include) PUNCTUATION(<)
-  IDENTIFIER(stdio) PUNCTUATION(.) IDENTIFIER(h)
-  PUNCTUATION(>) KEYWORD(int) IDENTIFIER(main) PUNCTUATION(() PUNCTUATION()) PUNCTUATION({)
-  IDENTIFIER(printf) PUNCTUATION(() COMMENT("Hello, Compiler!")
-  PUNCTUATION()) PUNCTUATION(;) PUNCTUATION(})
-  ```
-- **The Parser** determines whether or not the stream of words consists of valid sentences in the source language. After analyzing the grammar of the token stream, it outputs an abstract syntax tree(AST). Nodes in a Clang AST represent declarations, statements, and types.
+  <img src="/img/blog/compilers/lexer.jpg"/>
+
+- **The Parser** determines whether or not the stream of words consists of valid sentences in the source language. After analyzing the grammar of the token stream, it outputs an abstract syntax tree (AST). Nodes in a Clang AST represent declarations, statements, and types.
 
   *The AST of compile_me.c*
-  {% highlight bash %}
-  TranslationUnitDecl
-  `-FunctionDecl main 'int ()'
-    `-CompoundStmt
-      |-CallExpr 'int'
-      | |-ImplicitCastExpr 'int (\*)(const char \*, ...)' <FunctionToPointerDecay>
-      | | `-DeclRefExpr 'int (const char *, ...)' Function 0x7f8603093378 'printf' 'int (const char *, ...)'
-      | `-ImplicitCastExpr 'const char \*' <BitCast>
-      |   `-ImplicitCastExpr 'char *' <ArrayToPointerDecay>
-      |     `-StringLiteral 'char [18]' lvalue "Hello, Compiler!\n"
-      `-ReturnStmt
-        `-IntegerLiteral 0x7f86030ab7c0 <col:10> 'int' 0
-  {% endhighlight %}
+
+<img src="/img/blog/compilers/tree.jpg"/>
 
 - **The Semantic Analyzer** traverses the AST, determining if code sentences have valid meaning. This phase checks for type errors. If the main function in compile_me.c returned `"zero"` instead of `0`, the semantic analyzer would throw an error because `"zero"` is not of type `int`.
 
@@ -71,11 +56,11 @@ clang -E compile_me.c -o preprocessed.i
 
   *Run the clang frontend on compile_me.c to generate LLVM IR:*
   ```
-  clang -S -emit-llvm -o optimize_me.ll compile_me.c
+  clang -S -emit-llvm -o llvm_ir.ll compile_me.c
   ```
-  *The main function in optimize_me.ll*
+  *The main function in llvm_ir.ll*
   {% highlight llvm linenos %}
-; optimize_me.ll
+; llvm_ir.ll
 
 @.str = private unnamed_addr constant [18 x i8] c"Hello, Compiler!\0A\00", align 1
 
@@ -94,7 +79,7 @@ The job of the optimizer is to improve code efficiency based on it's understandi
 
 Take a look at the difference between the LLVM IR code our frontend generated above and the result of running:
 ```
-opt -O2 optimize_me.ll -o optimized.ll
+opt -O2 llvm_ir.ll -o optimized.ll
 ```
 *The main function in optimized.ll*
 {% highlight llvm linenos %}
@@ -163,10 +148,11 @@ LLVM's backend tool is `llc`. It generates machine code from LLVM IR input in th
 
 - **Instruction selection** is the mapping of IR instructions to the instruction-set of the target machine. This step uses an infinite namespace of virtual registers.
 
-- **Register allocation** is the mapping of virtual registers to actual registers on your target architecture. My mac has an x86 architecture, which is limited to 16 registers. However, the compiler will use as few registers as possible.
+- **Register allocation** is the mapping of virtual registers to actual registers on your target architecture. My CPU has an x86 architecture, which is limited to 16 registers. However, the compiler will use as few registers as possible.
 
 - **Instruction scheduling** is the reordering of operations to reflect the target machine's performance constraints.
 
+*Running this command will produce some machine code!*
 ```
 llc -o compiled-assembly.s optimized.ll
 ```
@@ -182,13 +168,9 @@ _main:
 L_str:
 	.asciz	"Hello, Compiler!"
 ```
-___
-**Resources**
-1. Engineering a compiler
-2.
-<!-- ### Source file, Object file -->
+This program is x86 assembly language, which is the human readable syntax for the language my computer speaks. Someone finally understands me 🙌
 
-<!-- another neat idea for compiler blog post: manually walk through the compilation of a single program
-C preprocessor, then C -> IR, IR optimization, then IR -> assembly
-all of these have separate tools/steps you could show
-also assembly -> object file -> executable -->
+____
+**Resources**
+1. [Engineering a compiler](https://www.amazon.com/Engineering-Compiler-Second-Keith-Cooper/dp/012088478X)
+2. [Getting Started with LLVM Core Libraries](https://www.amazon.com/Getting-Started-LLVM-Core-Libraries/dp/1782166920)

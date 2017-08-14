@@ -79,7 +79,7 @@ The job of the optimizer is to improve code efficiency based on it's understandi
 
 Take a look at the difference between the LLVM IR code our frontend generated above and the result of running:
 ```
-opt -O2 llvm_ir.ll -o optimized.ll
+opt -O2 -S llvm_ir.ll -o optimized.ll
 ```
 *The main function in optimized.ll*
 {% highlight llvm linenos %}

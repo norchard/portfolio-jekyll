@@ -41,7 +41,7 @@ clang -E compile_me.c -o preprocessed.i
 ```
 - **The Lexer** (or scanner or tokenizer) converts a string of characters to a string of words. Each word, or token, is assigned to one of five syntactic categories: punctuation, keyword, identifier, literal, or comment.
 
-  *Tolkenization of compile_me.c*
+  *Tokenization of compile_me.c*
   <img src="/img/blog/compilers/lexer.jpg"/>
 
 - **The Parser** determines whether or not the stream of words consists of valid sentences in the source language. After analyzing the grammar of the token stream, it outputs an abstract syntax tree (AST). Nodes in a Clang AST represent declarations, statements, and types.
@@ -75,7 +75,7 @@ declare i32 @printf(i8*, ...)
 {% endhighlight %}
 
 ### The Optimizer
-The job of the optimizer is to improve code efficiency based on it's understanding of the program's runtime behavior. The optimizer takes IR as input and produces improved IR as output. LLVM's optimizer tool, `opt`, will optimize for processor speed with the flag `-O2` (capital o, two) and for size with the flag `-Os` (capital o, s).
+The job of the optimizer is to improve code efficiency based on its understanding of the program's runtime behavior. The optimizer takes IR as input and produces improved IR as output. LLVM's optimizer tool, `opt`, will optimize for processor speed with the flag `-O2` (capital o, two) and for size with the flag `-Os` (capital o, s).
 
 Take a look at the difference between the LLVM IR code our frontend generated above and the result of running:
 ```

@@ -141,7 +141,7 @@ define i32 @main() {
 declare i32 @printf(i8* nocapture readonly, ...)
 {% endhighlight %}
 
-Our optimized main function is essentially lines 17 and 18 of the unoptimized version, with the variable values inlined. `opt` calculated the addition because all of the variables were constant. Pretty cool, huh?
+Our optimized main function is essentially lines 16 and 17 of the unoptimized version, with the variable values inlined. `opt` calculated the addition because all of the variables were constant. Pretty cool, huh?
 
 ### The Backend
 LLVM's backend tool is `llc`. It generates machine code from LLVM IR input in three phases:

@@ -1,0 +1,63 @@
+<head>
+  <meta charset='utf-8'>
+  <title>Nicole Orchard</title>
+  <link rel='stylesheet' href='/assets/main.css'>
+  <link rel='stylesheet' href='/assets/fa-all.min.css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
+  <script>
+    function tattooClick(){
+      if (document.getElementsByClassName('dark').length > 0){
+        document.body.classList.remove('dark')
+        sessionStorage.setItem('mode', 'light')
+      } else {
+        document.body.className = 'dark'
+        sessionStorage.setItem('mode', 'dark')
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+      if (sessionStorage.getItem('mode') == 'dark'){
+        document.body.className = 'dark'
+      }
+    })
+
+    let index = 0
+
+    function occupationClick(event) {
+      const occupation = document.getElementById('occupation')
+      const intro = document.getElementById('intro')
+      const identities = [' software engineer',
+                        ' designer',
+                        ' friend',
+                        'n artist',
+                        ' daughter',
+                        ' photographer',
+                        ' good neighbor',
+                        ' ceramicist',
+                        ' human being',
+                        ' writer',
+                        ' painter',
+                        ' sister',
+                        ' cyclist',
+                        ' occational knitter']
+
+      if (!event.shiftKey) return;
+
+      // don't highlight on easter egg
+      if (index == 0) {
+        document.getSelection().removeAllRanges();
+        intro.classList.add('no-selection')
+      }
+
+      function reset() {
+        index = 0
+        occupation.textContent = identities[index]
+        intro.classList.remove('no-selection')
+      }
+
+      var timer = ++index
+      setTimeout(() => { if (timer == index) reset(); }, 500);
+      occupation.textContent = identities[index % identities.length]
+    }
+  </script>
+</head>

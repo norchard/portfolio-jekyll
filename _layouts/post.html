@@ -2,13 +2,9 @@
 layout: default
 ---
 
-<div class="post col-lg-7">
-    <h1 style="margin-bottom: 0px;">{{  page.title }}</h1>
-    <!-- <span style="font-size: 20px; padding-right:10px;">{{  page.emoji }}</span> -->
-    <h3 style="font-size: 24px; margin-top: 0px;">{{ page.description }}</h3>
-    <p>{{ page.date | date: '%B %d, %Y' }}</p>
-    <hr>
-  {{ content }}
+<div class='title'>
+  <h1>{{  page.title }}</h1>
+  <h2>{{  page.description }}</h2>
 </div>
-<!-- <div class="post col-lg-5">
-</div> -->
+
+{{ content }}

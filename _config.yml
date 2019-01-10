@@ -13,7 +13,6 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-
 title: Nicole Orchard
 email: norchard24@gmail.com
 description: Nicole Orchard
@@ -21,23 +20,14 @@ url: https://nicoleorchard.com
 timezone: America/New_York
 
 # baseurl: "" # the subpath of your site, e.g. /blog
-
-# twitter_username: jekyllrb
-# github_username:  jekyll
-
-collections:
-  works:
-    output: true
-    permalink: /design/:title
+url: "nicoleorchard.com" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  norchard
 
 # Build settings
 permalink: /blog/:title
 markdown: kramdown
 highlighter: rouge
 
-# theme: minima
-# gems:
-#   - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -47,9 +37,3 @@ exclude:
 # Compress sass files
 sass:
   style: compressed
-
-gems:
-- jekyll-bootstrap-sass
-- font-awesome-sass
-- rouge
-# - jekyll-feed

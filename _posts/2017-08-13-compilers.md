@@ -8,7 +8,7 @@ description: How to Speak to Computers, Pre-Siri
 A compiler is just a program that translates other programs. Traditional compilers translate source code into executable machine code that your computer understands. (Some compilers translate source code into another programming language. These compilers are called source-to-source translators or transpilers.) [LLVM](http://llvm.org/) is a widely used compiler project, consisting of many modular compiler tools.
 
 Traditional compiler design comprises three parts:
-<img src="/img/blog/compilers/compiler1.jpg"/>
+<img src="/assets/img/blog/compilers/compiler1.jpg"/>
 - **The Frontend** translates source code into an intermediate representation (IR)\*. [`clang`](http://clang.llvm.org/) is LLVM's frontend for the C family of languages.
 - **The Optimizer** analyzes the IR and translates it into a more efficient form. [`opt`](http://llvm.org/docs/CommandGuide/opt.html) is the LLVM optimizer tool.
 - **The Backend** generates machine code by mapping the IR to the target hardware instruction set. [`llc`](http://llvm.org/docs/CommandGuide/llc.html) is the LLVM backend tool.
@@ -42,13 +42,13 @@ clang -E compile_me.c -o preprocessed.i
 - **The Lexer** (or scanner or tokenizer) converts a string of characters to a string of words. Each word, or token, is assigned to one of five syntactic categories: punctuation, keyword, identifier, literal, or comment.
 
   *Tokenization of compile_me.c*
-  <img src="/img/blog/compilers/lexer.jpg"/>
+  <img src="/assets/img/blog/compilers/lexer.jpg"/>
 
 - **The Parser** determines whether or not the stream of words consists of valid sentences in the source language. After analyzing the grammar of the token stream, it outputs an abstract syntax tree (AST). Nodes in a Clang AST represent declarations, statements, and types.
 
   *The AST of compile_me.c*
 
-<img src="/img/blog/compilers/tree.jpg"/>
+<img src="/assets/img/blog/compilers/tree.jpg"/>
 
 - **The Semantic Analyzer** traverses the AST, determining if code sentences have valid meaning. This phase checks for type errors. If the main function in compile_me.c returned `"zero"` instead of `0`, the semantic analyzer would throw an error because `"zero"` is not of type `int`.
 

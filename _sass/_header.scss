@@ -1,0 +1,64 @@
+header {
+  margin-bottom: 100px;
+}
+
+#tattoo {
+  float: right;
+}
+
+#sun {
+  box-sizing: border-box;
+  border: solid 15px $accent-color;
+  height: $radius;
+  width: $radius;
+  border-radius: $radius;
+  float: right;
+  transition: all 0.5s ease;
+  &:hover{
+    margin-top: -5px;
+  }
+}
+
+#moon {
+  box-sizing: border-box;
+  border: solid 1.5px $light-color;
+  height: $radius;
+  width: $radius;
+  border-radius: $radius;
+  float: right;
+  margin-right: -($radius / 2.75);
+  transition: all 0.5s ease;
+  &:hover{
+    margin-top: -5px;
+  }
+}
+
+#night {
+  background-color: none;
+  height: $radius * 1.5;
+  width: $radius * 1.5;
+  border-radius: $radius;
+  float: right;
+  margin-right: -($radius / 1.5);
+  margin-top: -($radius / 1.85);
+  transition: all 0s linear;
+  transition-delay: 0s;
+  transform: scale(.25);
+}
+
+.dark {
+  #sun {
+    border: solid 2px $accent-color;
+  }
+
+  #moon {
+    border: solid 15px $light-color;
+  }
+
+  #night {
+    background-color: $dark-color;
+    transition: all .5s ease;
+    transition-delay: 0.2s;
+    transform: scale(1);
+  }
+}

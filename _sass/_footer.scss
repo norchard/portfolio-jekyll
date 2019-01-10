@@ -1,0 +1,48 @@
+footer {
+  color: $light-color;
+  text-align: center;
+  position: fixed;
+  background-color: $dark-color;
+  width: 40px;
+  height: 120vh;
+  top: 0px;
+  padding: 50px 5px 10px 5px;
+  margin: auto;
+}
+
+.dark footer {
+  background-color: $light-color;
+  a {
+    color: $dark-color;
+  }
+}
+
+footer a {
+  &:hover {
+    color: $accent-color;
+  }
+  &::after{
+    content: none; // disable link underline for footer links
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  footer {
+    color: $light-color;
+    position: absolute;
+    bottom: 0;
+    top: unset;
+    background-color: $dark-color;
+    width: 100vw;
+    height: 40px;
+    padding: 0px 0px 10px 0px;
+    a {
+      padding: 5px;
+    }
+  }
+}
+
+#no {
+  font-size: 15px;
+  font-weight: 800;
+}

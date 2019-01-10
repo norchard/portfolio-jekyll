@@ -1,0 +1,57 @@
+html {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  color: $dark-color;
+  background-color: $white;
+  transition: background-color 0.5s ease;
+}
+
+.dark {
+  background-color: $dark-color;
+  color: $white;
+}
+
+.content {
+  max-width: 670px;
+  margin: auto;
+  padding: 50px 0px 80px 0px;
+}
+
+@media screen and (max-width: $tablet) {
+  .content {
+    max-width: 560px;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .content {
+    max-width: 350px;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.no-selection {
+  -moz-user-select     : none;
+  -khtml-user-select   : none;
+  -webkit-user-select  : none;
+  -o-user-select       : none;
+  user-select          : none;
+}
+
+.title {
+  margin: 40px 0px;
+}
